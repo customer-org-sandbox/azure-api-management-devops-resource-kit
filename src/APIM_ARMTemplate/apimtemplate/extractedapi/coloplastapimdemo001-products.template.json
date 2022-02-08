@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ApimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "properties": {
+        "description": "Exposed to mobile app users. all apis",
+        "terms": "This is how the legal terms are displayed",
+        "subscriptionRequired": true,
+        "approvalRequired": false,
+        "subscriptionsLimit": 5,
+        "state": "published",
+        "displayName": "mobileUsers"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/mobileusers')]",
+      "type": "Microsoft.ApiManagement/service/products",
+      "apiVersion": "2021-01-01-preview"
+    }
+  ]
+}
